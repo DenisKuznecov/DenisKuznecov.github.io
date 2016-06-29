@@ -10,7 +10,7 @@
 						<button class="btn btn-danger glyphicon glyphicon-remove delete-category" ng-click="deletePriority(priority)"></button>
 					</div>
 					<form class="add-category">
-						<input type="text" ng-model="formPriorityName">
+						<input type="text" ng-model="formPriorityName" required="required" ng-required="true" ng-minlength="1">
 						<button class="add-btn btn" ng-click="addPriority()">add</button>
 					</form>
 				</div>

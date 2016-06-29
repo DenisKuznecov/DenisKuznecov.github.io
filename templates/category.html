@@ -10,7 +10,7 @@
 						<button class="btn btn-danger glyphicon glyphicon-remove delete-category" ng-click="deleteCategory(category)"></button>
 					</div>
 					<form class="add-category">
-						<input type="text" ng-model="formCategoryName">
+						<input type="text" ng-model="formCategoryName" required="required" ng-required="true" ng-minlength="1">
 						<button class="add-btn btn" ng-click="addCategory()">add</button>
 					</form>
 				</div>

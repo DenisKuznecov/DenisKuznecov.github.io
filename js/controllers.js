@@ -35,7 +35,9 @@ app.controller('CategoryController', ['$scope', '$route', '$routeParams', 'Setti
    };
    
    $scope.addCategory = function() {
-    $scope.categories.push({name: $scope.formCategoryName});
+    if ($scope.formCategoryName.length) {
+      $scope.categories.push({name: $scope.formCategoryName});
+    }
     $scope.formCategoryName = "";
     SettingsService.saveCategory($scope.categories);
   };
@@ -55,7 +57,9 @@ app.controller('PriorityController', ['$scope', '$route', '$routeParams', 'Setti
    };
    
    $scope.addPriority = function() {
-    $scope.priorities.push({name: $scope.formPriorityName});
+    if ($scope.formPriorityName.length) {
+      $scope.priorities.push({name: $scope.formPriorityName});
+    }
     $scope.formPriorityName = "";
     SettingsService.savePriority($scope.priorities);
   };
@@ -65,8 +69,6 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
   function($scope, $route, $routeParams, SettingsService, TasksService) {
     $scope.todos = TasksService.todos;
     console.log("controllerLoad", $scope.todos);
-    $scope.formTodoName = "";
-    $scope.formTodoText = "";
     // $scope.todos = [{name: 'Angular', text: 'i am studing angular js', color: '#ffff33', category: 'Work', priority: 'Important', done: false}];
     // This is my colors array which contains background color for todo-wrap class
     $scope.colors = [
@@ -100,13 +102,13 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
     };
     // This function adds the todo if inputs are not empty or there are more than 30 letters in it
     $scope.addTodo = function() {
-      if ($scope.formTodoName === '' && $scope.formTodoText === '') {
-        // alert('Name your task!');
-      } else if($scope.formTodoName.length > 30 && $scope.formTodoText.length > 30) {
-        // alert("Hey dude, it's to long");
+      if ($scope.formTodoName.length > 30 && $scope.formTodoText.length > 30) {
+        alert("Hey dude, it's to long");
       } else if ($scope.formTodoName.length && $scope.formTodoText.length) {
         $scope.todos.push({name: $scope.formTodoName, text: $scope.formTodoText, color: $scope.formTodoColor, category: $scope.formTodoCategory, priority: $scope.formTodoPriority, done: false});
       }
+      $scope.formTodoName = "";
+      $scope.formTodoText = "";
       TasksService.saveTodo($scope.todos);
     };
   } 

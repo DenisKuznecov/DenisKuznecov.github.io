@@ -119,8 +119,9 @@ input[type="checkbox"] {
 	margin-bottom: 10px;
 }
 
-.todo-color {
-	width: 45%;
+.todo-color,
+.todo-priority {
+	width: 43%;
 }
 
 .todo-category {
