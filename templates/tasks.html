@@ -1,0 +1,45 @@
+<!-- this part for tasks-->
+<section class="tasks" ng-controller="TasksController">
+	<div class="container tasks-wrap">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<h2>{{todos.length}} todo left</h2>
+				<div ng-repeat="todo in todos" class="done-{{todo.done}} todo-wrap" style="background: {{todo.color}}">
+					<input type="checkbox" ng-model="todo.done">
+					<div class="todo-content">
+						<h3>{{todo.name}}</h3>
+						<p>{{todo.text}}</p>
+						<span>{{todo.category?'#' + todo.category:' '}} {{todo.priority?'@' + todo.priority:' '}}</span>
+					</div>
+					<button class="edit-todo" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-pencil"></i></button>
+				</div>
+				<form class="form-horizontal">
+					<div class="col-md-12">
+						<input type="text" class="todo-name" ng-model="formTodoName" placeholder="Name" required="required" ng-required="true" ng-minlength="1">
+					</div>
+					<div class="col-md-12">
+						<input type="text" class="todo-text" ng-model="formTodoText" placeholder="Description" required="required" ng-required="true" ng-minlength="1">
+					</div>
+					<div class="col-md-12 selects">
+						<select class="btn btn-default todo-color" ng-model="formTodoColor">
+							<option value="">Pick a color</option>
+							<option value="{{color.hex}}"  ng-repeat="color in colors">{{color.name}}</option>
+						</select>
+						<select class="btn btn-default todo-category" ng-model="formTodoCategory">
+							<option value="">Pick a category</option>
+							<option value="{{category.name}}"  ng-repeat="category in categories">{{category.name}}</option>
+						</select>
+						<select class="btn btn-default todo-priority" ng-model="formTodoPriority">
+							<option value="">Priority</option>
+							<option value="{{priority.name}}"  ng-repeat="priority in priorities">{{priority.name}}</option>
+						</select>
+					</div><!--selects-->
+					<div class="col-md-12 group-btn">
+						<button class="btn add-btn" ng-click="addTodo()" type="submit">Add</button>
+						<button class="btn delete-btn" ng-click="clearCompleted(todo)">Delete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

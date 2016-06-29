@@ -1,0 +1,20 @@
+<!-- this part for categories-->
+<section class="categories" ng-controller="CategoryController">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 category-wrap">
+				<h2>Category</h2>
+				<div class="category-list">
+					<div ng-repeat="category in categories" class="category-content"> 
+						<span>{{category.name}}</span>
+						<button class="btn btn-danger glyphicon glyphicon-remove delete-category" ng-click="deleteCategory(category)"></button>
+					</div>
+					<form class="add-category">
+						<input type="text" ng-model="formCategoryName">
+						<button class="add-btn btn" ng-click="addCategory()">add</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

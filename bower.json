@@ -1,0 +1,24 @@
+{
+  "name": "src",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    ""
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.9",
+    "angular": "~1.4.9",
+    "bootstrap": "~3.3.6"
+  }
+}
