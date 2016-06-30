@@ -104,13 +104,6 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
       $scope.formTodoText = "";
       TasksService.saveTodo($scope.todos);
     };
-    $scope.addTodoRename = function() {
-      
-        $scope.todos.push({name: $scope.todo.name});
-      
-      TasksService.saveTodo($scope.todos);
-    };
-
     $scope.saveTasks = function() {
       TasksService.saveTodo($scope.todos);
     };
