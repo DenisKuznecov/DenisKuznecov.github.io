@@ -150,6 +150,17 @@ input[type="checkbox"] {
 	background-color: #c30900;
 }
 
+.todo-name-rename,
+.todo-text-rename {
+	background-color: transparent;
+	border: none;
+	resize: none;
+}
+
+.todo-name-rename {
+	font-size: 24px;
+}
+
 
 /*end of tasks*/
 
@@ -187,3 +198,18 @@ input[type="checkbox"] {
 }
 
 /*end of categories*/
+
+/*this part for modal window*/
+
+.modal-content {
+	border-radius: 0;
+}
+
+.todo-name-modal,
+.todo-text-modal {
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 5px 14px;
+	margin: 10px;
+}

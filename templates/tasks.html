@@ -7,12 +7,11 @@
 				<div ng-repeat="todo in todos" class="done-{{todo.done}} todo-wrap" style="background: {{todo.color}}">
 					<input type="checkbox" ng-model="todo.done">
 					<div class="todo-content">
-						<h3>{{todo.name}}</h3>
-						<p>{{todo.text}}</p>
+						<input type="text" ng-blur="saveTasks()" ng-model="todo.name" placeholder="Name" class="todo-name-rename done-{{todo.done}}" />
+            <textarea ng-model="todo.text" ng-blur="saveTasks()" placeholder="Description" class="todo-text-rename done-{{todo.done}}"></textarea>
+            <br>
 						<span>{{todo.category?'#' + todo.category:' '}} {{todo.priority?'@' + todo.priority:' '}}</span>
 					</div>
-					<button class="edit-todo" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-pencil"></i></button>
-					<div class="modal" id="myModal"><div class="modal-dialog"><div class="modal-content">sfgsadfg</div></div></div>
 				</div>
 				<form class="form-horizontal">
 					<div class="col-md-12">

@@ -14,11 +14,9 @@ app.service('SettingsService',
 app.service('TasksService', 
   function() {
     this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-    console.log("load", this.todos);
     this.saveTodo = function(todos) {
       localStorage.setItem('todos', angular.toJson(todos));
       this.todos = todos;
-      console.log("saveTodo", todos);
     };
   });
 // This is my Category Controller
@@ -68,8 +66,6 @@ app.controller('PriorityController', ['$scope', '$route', '$routeParams', 'Setti
 app.controller('TasksController', ['$scope', '$route', '$routeParams', 'SettingsService', 'TasksService',
   function($scope, $route, $routeParams, SettingsService, TasksService) {
     $scope.todos = TasksService.todos;
-    console.log("controllerLoad", $scope.todos);
-    // $scope.todos = [{name: 'Angular', text: 'i am studing angular js', color: '#ffff33', category: 'Work', priority: 'Important', done: false}];
     // This is my colors array which contains background color for todo-wrap class
     $scope.colors = [
     {name: 'red', hex: '#ff3333'},
@@ -90,9 +86,6 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
       $scope.priorities.push(SettingsService.priorities[i]);
     }
     $scope.priorities.push({name: 'Very Important'}, {name: 'Important'}, {name: 'Less important'});
-    // $scope.getTotalTodos = function() {
-    //   return $scope.todos.length
-    // };
     // This function removes the todo
     $scope.clearCompleted = function() {
       $scope.todos = $scope.todos.filter(function(todo) {
@@ -109,6 +102,16 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
       }
       $scope.formTodoName = "";
       $scope.formTodoText = "";
+      TasksService.saveTodo($scope.todos);
+    };
+    $scope.addTodoRename = function() {
+      
+        $scope.todos.push({name: $scope.todo.name});
+      
+      TasksService.saveTodo($scope.todos);
+    };
+
+    $scope.saveTasks = function() {
       TasksService.saveTodo($scope.todos);
     };
   } 
