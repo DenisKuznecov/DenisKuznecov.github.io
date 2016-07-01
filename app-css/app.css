@@ -1,0 +1,220 @@
+body {
+	background: #F6F6F6;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+/*header*/
+
+header {
+	height: 60px;
+	background-color: #2570f9;
+	box-shadow: 0px 0px 5px 1px #000;
+}
+
+nav.navigation {
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+}
+
+nav.navigation a {
+	display: block;
+	color: #fff;
+	font: 20px monospace;
+	padding: 18px 10px 18px;
+	outline: none;
+	text-decoration: none;
+}
+
+nav.navigation a:hover,
+nav.navigation a:visited,
+nav.navigation a:focus {
+	background-color: #518cfb;
+	color: #fff;
+	text-decoration: none;
+	outline: none;
+}
+
+.active {
+	background-color: #518cfb;
+}
+
+/*end of header*/
+
+/*tasks*/
+
+.todo-wrap {
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	color: #000;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0px 4px 10px 0px #434343;
+}
+
+.todo-content {
+	width: 260px;
+}
+
+input[type="checkbox"] {
+	width: 23px;
+	height: 23px;
+	outline: none !important;
+}
+
+.todo-wrap h3 {
+	margin: 0;
+}
+
+.edit-todo {
+	background-color: transparent;
+	border: none;
+	color: #000;
+}
+
+.done-true {
+	text-decoration: line-through;
+	color: gray;
+}
+
+.todo-name,
+.todo-text {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 5px 14px;
+	margin-bottom: 10px;
+}
+
+.selects,
+.group-btn {
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	margin-bottom: 10px;
+}
+
+.todo-color,
+.todo-category {
+	margin-bottom: 10px;
+}
+
+.todo-color,
+.todo-priority {
+	width: 43%;
+}
+
+.todo-category {
+	width: 52%;
+}
+
+.add-btn {
+	width: 25%;
+	background-color: #565656;
+	color: #fff;
+}
+
+.add-btn:hover {
+	color: #fff;
+	background-color: #393939;
+}
+
+.delete-btn {
+	width: 40%;
+	background-color: #e40e04;
+	color: #fff;
+}
+
+.delete-btn:hover {
+	color: #fff;
+	background-color: #c30900;
+}
+
+.todo-name-rename,
+.todo-text-rename {
+	background-color: transparent;
+	border: none;
+	resize: none;
+}
+
+.todo-name-rename {
+	font-size: 24px;
+}
+
+
+/*end of tasks*/
+
+/*categories*/
+
+.category-content,
+.priority-content {
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.delete-category {
+	padding: 5px 8px;
+}
+
+.add-category {
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+/*end of categories*/
+
+/*this part for modal window*/
+
+.modal-content {
+	border-radius: 0;
+}
+
+.todo-name-modal,
+.todo-text-modal {
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 5px 14px;
+	margin: 10px;
+}
