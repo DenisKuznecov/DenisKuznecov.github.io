@@ -8,9 +8,10 @@
 					<input type="checkbox" ng-model="todo.done">
 					<div class="todo-content">
 						<input type="text" ng-blur="saveTasks()" ng-model="todo.name" placeholder="Name" class="todo-name-rename done-{{todo.done}}" />
-            <textarea ng-model="todo.text" ng-blur="saveTasks()" placeholder="Description" class="todo-text-rename done-{{todo.done}}"></textarea>
-            <br>
-						<span>{{todo.category?'#' + todo.category:' '}} {{todo.priority?'@' + todo.priority:' '}}</span>
+						<textarea ng-model="todo.text" ng-blur="saveTasks()" placeholder="Description" class="todo-text-rename done-{{todo.done}}"></textarea>
+						<br>
+						<span ng-repeat="categoryId in todo.categories">{{'#' + categories[categoryId].name + ' '}}</span>
+						<span>{{todo.priority?'@' + todo.priority:' '}}</span>
 					</div>
 				</div>
 				<form class="form-horizontal">
@@ -25,14 +26,18 @@
 							<option value="">Pick a color</option>
 							<option value="{{color.hex}}"  ng-repeat="color in colors">{{color.name}}</option>
 						</select>
-						<select class="btn btn-default todo-category" ng-model="formTodoCategory">
-							<option value="">Pick a category</option>
-							<option value="{{category.name}}"  ng-repeat="category in categories">{{category.name}}</option>
-						</select>
 						<select class="btn btn-default todo-priority" ng-model="formTodoPriority">
 							<option value="">Priority</option>
 							<option value="{{priority.name}}"  ng-repeat="priority in priorities">{{priority.name}}</option>
 						</select>
+						<select class="btn btn-default todo-category" ng-change="addCategory(formTodoCategory)" ng-model="formTodoCategory">
+							<option value="">Pick a category</option>
+							<option value="{{category.name}}"  ng-repeat="category in categories">{{category.name}}</option>
+						</select>
+						<!-- 						<div class="categories" ng-repeat="name in categoriesNames">{{name}}</div> -->
+						<ul class="categories">
+							<li ng-repeat="name in categoriesNames">{{name}}</li>
+						</ul>
 					</div><!--selects-->
 					<div class="col-md-12 group-btn">
 						<button class="btn add-btn" ng-click="addTodo()" type="submit">Add</button>

@@ -33,14 +33,30 @@ app.controller('TasksController', ['$scope', '$route', '$routeParams', 'Settings
       if ($scope.formTodoName.length > 30 && $scope.formTodoText.length > 30) {
         alert("Hey dude, it's to long");
       } else if ($scope.formTodoName.length && $scope.formTodoText.length) {
-        $scope.todos.push({name: $scope.formTodoName, text: $scope.formTodoText, color: $scope.formTodoColor, category: $scope.formTodoCategory, priority: $scope.formTodoPriority, done: false});
+        $scope.todos.push({name: $scope.formTodoName, text: $scope.formTodoText, color: $scope.formTodoColor, categories: $scope.categoriesId, priority: $scope.formTodoPriority, done: false});
       }
       $scope.formTodoName = "";
       $scope.formTodoText = "";
+      $scope.categoriesId = [];
+      $scope.categoriesNames = []; 
       TasksService.saveTodo($scope.todos);
     };
     $scope.saveTasks = function() {
       TasksService.saveTodo($scope.todos);
+    };
+    $scope.categoriesNames = []; 
+    $scope.categoriesId = [];
+    $scope.addCategory = function (name) {
+      $scope.categoriesNames.push(name);
+      $scope.categoriesId.push($scope.findCategoryId(name));
+    };
+    $scope.findCategoryId = function (name) {
+      for (i = 0; i < $scope.categories.length; i++) {
+        if ($scope.categories[i].name == name) {
+          return i;
+        }
+      }
+      return -1;
     };
   } 
   ]);
