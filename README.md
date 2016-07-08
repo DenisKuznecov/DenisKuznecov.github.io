@@ -6,8 +6,8 @@ Todo-app is an application for managing your tasks. It has several templates, co
 It contains following features:
 - You can add as much tasks as you want.
 - Tasks will be stored in your browser's local storage.
-- You can change the title and text of your tasks.
-- You can set task's categories and priority level.
+- You can change the title and description of your tasks.
+- You can set several task's categories and priority level.
 - App based on Bootstrap design.
 
 I hope you enjoy my application!
